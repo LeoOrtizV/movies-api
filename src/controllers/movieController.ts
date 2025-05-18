@@ -15,7 +15,7 @@ export const getAllMovies = async (
       return;
     }
     res.status(200).json(movies);
-    res.json(movies);
+    //res.json(movies);
   } catch (error) {
     res.status(500).json({ message: "Error fetching movies", error });
   }

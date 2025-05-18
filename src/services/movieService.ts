@@ -2,6 +2,7 @@ import { MovieModel } from "../models/movieModel";
 import { Movie } from "../types/movie";
 
 export class MovieService {
+  
   async getAllMovies(): Promise<Movie[]> {
     return await MovieModel.find();
   }

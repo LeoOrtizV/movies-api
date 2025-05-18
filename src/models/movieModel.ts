@@ -10,12 +10,11 @@ const movieSchema = new Schema<MovieDocument>({
 },
 {
     timestamps: true,
-    //versionKey: false,
+    versionKey: false,
     toJSON:{
         transform: (doc, ret) => {
             ret.id = ret._id.toString();
-            delete ret._id;   
-            delete ret._v;          
+            delete ret._id;            
             return ret;
         }
     }
