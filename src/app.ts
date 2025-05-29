@@ -3,12 +3,15 @@ import dotenv from "dotenv";
 import connectDB from "./config/database";
 import router from "./routes/movieRoutes";
 import { errorHandler } from "./middlewares/errorHandler";
+import path from "path"; // importa path
 
 dotenv.config();
 const app = express();
 
 //middlewares
 app.use(express.json());
+
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 //routes
 app.use("/api/movies", router);

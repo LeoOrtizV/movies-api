@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movies CRUD with DataTables</title>
+
+  <!-- DataTables CSS -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"
+  />
+
+  <!-- jQuery (requerido para DataTables) -->
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+  <!-- DataTables JS -->
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+</head>
+<body>
+  <h1>Movies List</h1>
+  <table id="moviesTable" class="display">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Gender</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<script>
+  $(document).ready(function() {
+    $('#moviesTable').DataTable({
+      ajax: {
+        url: '/api/movies',
+        dataSrc: ''
+      },
+      columns: [
+        { data: 'title' },
+        { data: 'gender' },
+        { data: 'rating' }
+      ]
+    });
+  });
+</script>
+</body>
+</html>
