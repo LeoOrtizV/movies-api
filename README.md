@@ -97,3 +97,16 @@ La API se conecta a una base de datos remota en MongoDB Atlas, donde se almacena
 
 Pruebas
 Se utilizó Insomnia para probar las operaciones CRUD y verificar las respuestas de la API.
+
+## Pruebas con Insomnia
+
+A continuación se muestran ejemplos de pruebas realizadas con Insomnia para los endpoints de la API.
+
+### GET /movies
+![GET /movies en Insomnia](screenshots/insomia-get-movies.png)
+
+### POST /movies
+![POST /movies en Insomnia](screenshots/insomnia-post-movie.png)
+
+### DELETE /movies/:id
+![DELETE /movies en Insomnia](screenshots/insomnia-delete-movie.png)
