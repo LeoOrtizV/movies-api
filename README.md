@@ -1,8 +1,10 @@
-# Proyecto CRUD con Express, Node.js, Mongoose y TypeScript
+# CRUD API with Express, Node.js, Mongoose, and TypeScript
 
-Este proyecto es una API RESTful que permite realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre una base de datos MongoDB alojada en MongoDB Atlas. Está desarrollada con **Node.js**, **Express.js**, **Mongoose**, **TypeScript**, y utiliza **dotenv** para la configuración de variables de entorno.
+This project is a RESTful API that allows users to perform CRUD (Create, Read, Update, Delete) operations on a MongoDB database hosted on MongoDB Atlas.
 
-## Tecnologías utilizadas
+The API is built using **Node.js**, **Express.js**, **Mongoose**, and **TypeScript**. It also uses **dotenv** for managing environment variables.
+
+## Technologies Used
 
 - [Node.js](https://nodejs.org/)
 - [Express.js](https://expressjs.com/)
@@ -10,43 +12,60 @@ Este proyecto es una API RESTful que permite realizar operaciones CRUD (Crear, L
 - [Mongoose](https://mongoosejs.com/)
 - [dotenv](https://www.npmjs.com/package/dotenv)
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
-- [Insomnia](https://insomnia.rest/) para pruebas de API
+- [Insomnia](https://insomnia.rest/) for API testing
 
-## Instalación
+## Installation
 
-1. Clona el repositorio:
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/tuusuario/tu-repo-crud.git
-cd tu-repo-crud
+git clone https://github.com/yourusername/your-repo-crud.git
+cd your-repo-crud
 
+2. Install dependencies
 
-2.- Instala las dependencias:
 npm install
 
-3.- Crea un archivo .env en la raíz del proyecto con el siguiente contenido (ajusta los valores según tu configuración):
-PORT=3000
-MONGODB_URI=KEY
-⚠️ Importante: No compartas tu URI con credenciales reales en repositorios públicos.
+3. Create a .env file
 
-4.- Ejecuta el proyecto:
+Create a .env file in the root directory of the project with the following variables. Adjust the values according to your configuration:
+
+PORT=3000
+MONGODB_URI=YOUR_MONGODB_CONNECTION_STRING
+
+⚠️ Important: Never share your MongoDB connection string or credentials in public repositories.
+
+
+4. Run the project
+For development:
+
 npm run dev
 
-Endpoints
-Se utilizaron las siguientes rutas para operaciones CRUD (probadas con Insomnia):
+To build the project:
 
-GET /movies – Obtener todas las películas
+npm run build
 
-GET /movies/:id – Obtener una película por ID
+To run the compiled application:
 
-POST /movies – Crear una nueva película
+npm start
 
-PUT /movies/:id – Actualizar una película existente
+API Endpoints
 
-DELETE /movies/:id – Eliminar una película
+The following endpoints are available for performing CRUD operations on movies. The endpoints were tested using Insomnia.
+
+| Method   | Endpoint      | Description              |
+| -------- | ------------- | ------------------------ |
+| `GET`    | `/movies`     | Get all movies           |
+| `GET`    | `/movies/:id` | Get a movie by ID        |
+| `POST`   | `/movies`     | Create a new movie       |
+| `PUT`    | `/movies/:id` | Update an existing movie |
+| `DELETE` | `/movies/:id` | Delete a movie           |
 
 
-EJEMPLO DE RESPUESTA (GET/Movies)
+
+Example Response
+GET /movies
+
 [
   {
     "_id": "66332cfb48b36b3c7c50cfcc",
@@ -57,22 +76,22 @@ EJEMPLO DE RESPUESTA (GET/Movies)
   }
 ]
 
-
-Estructura del Proyecto
+Project Structure
 
 ├── src/
-│   ├── controllers/       # Lógica de negocio
-│   ├── models/            # Esquemas de Mongoose
-│   ├── routes/            # Definición de rutas
-│   ├── app.ts             # Configuración de la app
-│   └── index.ts           # Punto de entrada
-├── .env                   # Variables de entorno
+│   ├── controllers/       # Business logic
+│   ├── models/            # Mongoose schemas
+│   ├── routes/            # Route definitions
+│   ├── app.ts             # Application configuration
+│   └── index.ts           # Application entry point
+├── .env                   # Environment variables
 ├── package.json
 ├── tsconfig.json
 └── README.md
 
 
-tsconfig.json (ejemplo)
+TypeScript Configuration
+Example tsconfig.json configuration:
 
 {
   "compilerOptions": {
@@ -85,15 +104,31 @@ tsconfig.json (ejemplo)
   }
 }
 
-"scripts": {
-  "dev": "ts-node-dev --respawn src/index.ts",
-  "build": "tsc",
-  "start": "node dist/index.js"
+NPM Scripts
+The project includes the following scripts in package.json:
+
+{
+  "scripts": {
+    "dev": "ts-node-dev --respawn src/index.ts",
+    "build": "tsc",
+    "start": "node dist/index.js"
+  }
 }
 
+Database
 
-Base de Datos
-La API se conecta a una base de datos remota en MongoDB Atlas, donde se almacenan los datos de películas en la base movies_cursoDB.
+The API connects to a remote MongoDB database hosted on MongoDB Atlas.
 
-Pruebas
-Se utilizó Insomnia para probar las operaciones CRUD y verificar las respuestas de la API.
+Movie data is stored in the movies_cursoDB database.
+
+Testing
+
+Insomnia was used to test the REST API and verify the responses returned by each CRUD operation.
+
+The API was tested for the following operations:
+
+Retrieving all movies
+Retrieving a movie by ID
+Creating a new movie
+Updating an existing movie
+Deleting a movie
